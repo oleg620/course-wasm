@@ -27,6 +27,8 @@ const createBuilding = (coordinates, height) => {
   });
 
   const building = new THREE.Mesh(geometry, material);
+  building.receiveShadow = true;
+  building.castShadow = true;
 
   return building;
 };
