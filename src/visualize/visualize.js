@@ -21,6 +21,14 @@ export function init(site) {
   window.addEventListener("resize", onWindowResize, false);
 
   site.onChange(buildings => geometry.move(objects, buildings));
+  
+  
+  function render() {
+    controls.update();
+    renderer.render(scene, camera);
+    requestAnimationFrame(render);
+  }
+  render();
 
   function onWindowResize() {
     camera.aspect = window.innerWidth / window.innerHeight;
