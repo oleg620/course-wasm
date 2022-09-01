@@ -1,6 +1,11 @@
-import Module from "../../out/solver.js";
+import Module from "../../solver.js";
+
 
 export async function init(site) {
+  const instance = await Module();
+  // extern "C" void move(float *positions, int n)
+  const wrappedMove = instance.cwrap("move", /*returnType*/ null, /*arg types*/ ["number", "number"]);
+  
   await new Promise(resolve => setTimeout(resolve, 1000));
   const buildings = site.getBuildings();
   var nDataBytes = buildings.length * buildings.BYTES_PER_ELEMENT;
@@ -19,6 +24,8 @@ export async function init(site) {
 
   // Javascript wrapper to run an iteration
   function iterate() {
+
+    wrappedMove(data, buildings.length);
 
     const hasConverged = isEqual(buildings, data);
 
