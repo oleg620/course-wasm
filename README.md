@@ -187,7 +187,7 @@ Our search algorithm (solver) is located in `src/solver`. If we jump into the fi
 We want to be able to call this function from our javascript code.
 To be able to do this, we need to **build** the c++ implementation.
 
-Running the [`build.sh`](build.sh)/[`build.bat`](build.bat) script will create four files in the [`out`](out) folder. We will now look at two of them:
+Running the [`build.sh`](build.sh)/[`build.bat`](build.bat) script will create four(?) files in the [`out`](out) folder. We will now look at two of them:
 
 **1)** The file  `solver.wasm`, a WebAssembly binary of the search algorithm located in `src/solver`
 
