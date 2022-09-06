@@ -1,6 +1,7 @@
 import { generate } from "./generate.js";
 import * as Visualize from "./visualize/visualize.js";
-import * as Solver from "./solver/solver.js";
+//import * as Solver from "./solver/solver.js";
+import * as Solver from "./simple/simple.js";
 
 const site = generate();
 

@@ -1,6 +1,9 @@
 export async function init(site) {
   const memory = new WebAssembly.Memory({ initial: 256, maximum: 256 });
   const importObjects = { env: { memory } };
+  
+  const binary = await fetch('src/simple/simple.wasm');
+  const instance = (await WebAssembly.instantiateStreaming(binary, importObjects)).instance;
 
   const heap = new Float32Array(memory.buffer);
 
@@ -10,8 +13,8 @@ export async function init(site) {
   }
 
   function iterate() {
-    instance.exports._move(0, buildings.length);
-
+    instance.exports.move(0, buildings.length);
+    
     const result = [];
     for (let i = 0; i < buildings.length; i++) {
       result.push(heap[i]);

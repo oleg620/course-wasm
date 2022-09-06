@@ -1,1 +1,1 @@
-emcc -Os -s EXPORTED_FUNCTIONS=['_move'] simple.c -o simple.wasm
+emcc -Os -s EXPORTED_FUNCTIONS=['_move'] --no-entry simple.c -o simple.wasm
