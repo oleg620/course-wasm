@@ -1,1 +1,1 @@
-emcc -Os -s EXPORTED_FUNCTIONS=['_move'] --no-entry simple.c -o simple.wasm
+emcc -s EXPORTED_FUNCTIONS=_move -s EXPORTED_RUNTIME_METHODS=ccall,cwrap --no-entry simple.c -o simple.html
